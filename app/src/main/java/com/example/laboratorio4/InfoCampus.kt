@@ -15,12 +15,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.Text
@@ -30,10 +26,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.laboratorio4.ui.theme.Laboratorio4Theme
 
 @Composable
 fun infoCampus(onNavigatePerfil: () -> Unit){
@@ -58,7 +52,7 @@ fun infoCampus(onNavigatePerfil: () -> Unit){
                 .padding(10.dp),
             horizontalArrangement = Arrangement.SpaceBetween){
             Text(text = "Games VR", fontSize = 24.sp, fontWeight = FontWeight(600) , modifier = Modifier.padding(vertical = 15.dp))
-            IconButton(onClick = onNavigatePerfil ) {
+            IconButton(onClick = { onNavigatePerfil() } ) {
                 Icon(painter = iconUSer, contentDescription = "", modifier = Modifier
                     .size(48.dp)
                     .border(
@@ -121,38 +115,46 @@ fun infoCampus(onNavigatePerfil: () -> Unit){
                         }
                     }
                 }
-                Text(text = "SERVICIOS Y RECURSOS", fontSize = 18.sp, modifier = Modifier.padding( vertical = 20.dp, horizontal = 15.dp), color = Color.Gray)
+                Text(text = "JUEGOS ENTRETENIDOS", fontSize = 18.sp, modifier = Modifier.padding( vertical = 20.dp, horizontal = 15.dp), color = Color.Gray)
                 Row {
-                    Column (modifier = Modifier.padding(10.dp)) {
+                    Column (modifier = Modifier
+                        .padding(10.dp)
+                        .width(180.dp)) {
                         Image(painter = imageDoom, contentDescription ="Biolo", modifier = Modifier
-                            .size(180.dp), contentScale = ContentScale.Crop,  )
+                            .size(180.dp)
+                            .clip(RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp))
+                            , contentScale = ContentScale.Crop )
                         Box(modifier = Modifier
                             .background(
-                                Color(0x156, 0x7, 0x19),
+                                Color(0x88, 0x6, 0x6),
                                 shape = RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp)
                             )
-                            .padding(horizontal = 32.dp, vertical = 15.dp)
-                            ,
-
-                            )
+                            .width(180.dp)
+                            .height(50.dp)
+                            .padding(start = 10.dp, top = 10.dp)
+                        )
                         {
                             Text(text = "Doom VFR", color = Color.White, fontSize = 20.sp)
                         }
                     }
-                    Column(modifier = Modifier.padding(10.dp)) {
-                        Image(painter = imageBeet, contentDescription = "Entrada", modifier = Modifier
+                    Column (modifier = Modifier
+                        .padding(10.dp)
+                        .width(180.dp)) {
+                        Image(painter = imageBeet, contentDescription ="Biolo", modifier = Modifier
                             .size(180.dp)
+                            .clip(RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp))
                             , contentScale = ContentScale.Crop )
                         Box(modifier = Modifier
                             .background(
-                                Color(0x0, 0x0, 0x0),
+                                Color.Black,
                                 shape = RoundedCornerShape(bottomStart = 10.dp, bottomEnd = 10.dp)
                             )
-                            .padding(horizontal = 30.dp, vertical = 18.dp),
-
-                            )
+                            .width(180.dp)
+                            .height(50.dp)
+                            .padding(start = 10.dp, top = 10.dp)
+                        )
                         {
-                            Text(text = "Beet Saber", color = Color.White, fontSize = 15.sp)
+                            Text(text = "Beat Saber", color = Color.White, fontSize = 20.sp)
                         }
                     }
                 }
