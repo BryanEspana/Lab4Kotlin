@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -27,7 +28,7 @@ import androidx.navigation.NavController
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun ContactPage(navController: NavController){
+fun ContactPage(){
     val scrollState = rememberScrollState()
     //Icons
     val closeIcon = painterResource(id = R.drawable.baseline_close_24)
@@ -42,7 +43,8 @@ fun ContactPage(navController: NavController){
             Icon(painter = closeIcon, contentDescription = "",
                 Modifier
                     .size(40.dp)
-                    .clickable { navController.navigate(routingPages.PROFILE) })
+                    //.clickable { navController.navigate(routingPages.PROFILE) })
+            )
             Box(modifier =  Modifier.padding(start = 50.dp)) {
                 Text(text = "Contactos de Emergencia", fontSize = 20.sp)
             }
@@ -69,9 +71,18 @@ fun ContactPage(navController: NavController){
                             "contactanos", fontSize = 15.sp)
                 }
             }
-            Row (Modifier.fillMaxWidth().padding(15.dp).background(Color.Black)){
-                Icon(painter = phoneIcon, contentDescription ="")
-                Text(text = "Call 5978-1736", color = Color.White)
+            Box(modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+                .background(Color.Black)){
+                Row (
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(15.dp)
+                ){
+                    Icon(painter = phoneIcon, contentDescription ="")
+                    Text(text = "Call 5978-1736", color = Color.White)
+                }
             }
         }
 

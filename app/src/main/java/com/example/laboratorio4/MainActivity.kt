@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 composable(routingPages.CONTACTOS) {
-                    ContactPage(navController)
+                    ContactPage()
                 }
         }
 
@@ -55,9 +55,12 @@ class MainActivity : ComponentActivity() {
 fun GreetingPreview() {
 
     Laboratorio4Theme {
-        Surface( modifier = Modifier.fillMaxSize().background(Color.Black)){
-            infoCampus(onNavigatePerfil ={
-            })
+        Surface( modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Black)){
+            /*infoCampus(onNavigatePerfil ={
+            })*/
+            ContactPage()
         }
     }
 }}
