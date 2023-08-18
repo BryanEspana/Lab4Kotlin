@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -85,12 +87,16 @@ fun perfilPage (navController: NavController){
             .fillMaxSize()
             .verticalScroll(state = scrollState)
     ) {
-        Row (modifier = Modifier
-            .padding(15.dp)
-            .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(text = "Mi perfíl", fontSize = 20.sp, fontWeight = FontWeight(600), modifier = Modifier.padding(start = 130.dp))
-            Icon(painter = iconSettings, contentDescription = "", Modifier.width(50.dp))
+        Row (
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
+            horizontalArrangement = Arrangement.SpaceBetween){
+            Text(text = "Perfil", fontSize = 24.sp, fontWeight = FontWeight(600) , modifier = Modifier.padding(vertical = 15.dp))
+            Icon(painter = iconSettings, contentDescription ="", modifier =  Modifier.size(50.dp).clickable { navController.navigate(routingPages.CONFIG) } )
+
         }
+
         Box(
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -120,6 +126,7 @@ fun perfilPage (navController: NavController){
                 )
             }
         }
+
         Text(text = "Bryan Carlos España Machorro" , fontSize = 22.sp, fontWeight = FontWeight(500),modifier =  Modifier.padding(top = 60.dp, start = 30.dp, bottom = 30.dp))
 
         Divider()
