@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Lab4BryanEspana</string>
+    <string name="GamesVR">Games VR</string>
+    <string name="destacados">Destacados</string>
+    <string name="GamesEntretenidos">Juegos Entretenidos</string>
+    <string name="JuegosFav">Juegos Favoritos</string>
+    <string name="JuegosFav1">Revisa tus juegos favoritos</string>
+    <string name="ListaDeseos">Lista de deseos</string>
+    <string name="friends"> Mis Amigos</string>
+    <string name="friends1">Comparte tus gustos con tus amigos</string>
 </resources>

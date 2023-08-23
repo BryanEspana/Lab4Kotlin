@@ -1,4 +1,4 @@
-package com.example.laboratorio4
+package com.example.laboratorio4.RoutingPages
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -25,22 +25,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.laboratorio4.R
 
 @Composable
 fun infoCampus(onNavigatePerfil: () -> Unit){
     val scrollState = rememberScrollState()
     //Icons
     val iconUSer = painterResource(id = R.drawable.baseline_person_24)
+    val iconMenu = painterResource(id = R.drawable.baseline_menu_24)
     //Imagenes
     val imagefondo = painterResource(id = R.drawable.fondo)
     val imageBiolo = painterResource(id = R.drawable.alyx)
     val imageEntrada = painterResource(id = R.drawable.paradise)
     val imageDoom = painterResource(id = R.drawable.doom)
-    val imageBeet = painterResource(id = R.drawable.bet )
-
+    val imageBeet = painterResource(id = R.drawable.bet)
+    //Textos
+    val gamesVR = stringResource(id = R.string.GamesVR)
+    val destacados = stringResource(id = R.string.destacados)
+    val textEntretenidos = stringResource(id = R.string.GamesEntretenidos)
     Column (horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
@@ -70,7 +76,7 @@ fun infoCampus(onNavigatePerfil: () -> Unit){
             Column( Modifier.fillMaxSize()) {
                 Image(imagefondo,"", Modifier
                     .fillMaxWidth(), contentScale = ContentScale.FillWidth)
-                Text(text = "DESTACADOS", fontSize = 18.sp, modifier = Modifier
+                Text(text = destacados, fontSize = 18.sp, modifier = Modifier
                     .padding( vertical = 20.dp, horizontal = 15.dp), color = Color.Gray)
 
                 Row {
@@ -115,7 +121,7 @@ fun infoCampus(onNavigatePerfil: () -> Unit){
                         }
                     }
                 }
-                Text(text = "JUEGOS ENTRETENIDOS", fontSize = 18.sp, modifier = Modifier.padding( vertical = 20.dp, horizontal = 15.dp), color = Color.Gray)
+                Text(text = textEntretenidos, fontSize = 18.sp, modifier = Modifier.padding( vertical = 20.dp, horizontal = 15.dp), color = Color.Gray)
                 Row {
                     Column (modifier = Modifier
                         .padding(10.dp)

@@ -1,4 +1,4 @@
-package com.example.laboratorio4
+package com.example.laboratorio4.RoutingPages
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -8,18 +8,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,11 +26,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-
+import com.example.laboratorio4.R
+import com.example.laboratorio4.routingPages
 
 
 @Composable
@@ -71,15 +70,16 @@ fun BtnIconText(
 fun perfilPage (navController: NavController){
     val scrollState = rememberScrollState()
     //icons
-    val iconSettings = painterResource( R.drawable.baseline_settings_24)
+    val iconSettings = painterResource(R.drawable.baseline_settings_24)
     val index = painterResource(id = R.drawable.baseline_all_inbox_24)
     val personIcon = painterResource(id = R.drawable.baseline_people_24)
     val shopIcon = painterResource(id = R.drawable.baseline_shopping_bag_24)
     val phoneIcon = painterResource(id = R.drawable.baseline_phone_android_24)
     //Imagenes
-    val fondoPerfil = painterResource( R.drawable.fondoperfil)
+    val fondoPerfil = painterResource(R.drawable.fondoperfil)
     val vrPerfil = painterResource(R.drawable.vr)
-
+    //Textos
+    val favGames = stringResource(id = R.string.JuegosFav)
 
     //Pagina
     Column(horizontalAlignment = Alignment.Start,
@@ -93,7 +93,9 @@ fun perfilPage (navController: NavController){
                 .padding(10.dp),
             horizontalArrangement = Arrangement.SpaceBetween){
             Text(text = "Perfil", fontSize = 24.sp, fontWeight = FontWeight(600) , modifier = Modifier.padding(vertical = 15.dp))
-            Icon(painter = iconSettings, contentDescription ="", modifier =  Modifier.size(50.dp).clickable { navController.navigate(routingPages.CONFIG) } )
+            Icon(painter = iconSettings, contentDescription ="", modifier = Modifier
+                .size(50.dp)
+                .clickable { navController.navigate(routingPages.CONFIG) } )
 
         }
 
@@ -132,7 +134,7 @@ fun perfilPage (navController: NavController){
         Divider()
         //----------------------------------Juegos Favoritos----------------------------------------
 
-        BtnIconText( index,"Juegos Favoritos",  "Revisa tus juegos favoritos",
+        BtnIconText( index,favGames,  "Revisa tus juegos favoritos",
             Color(android.graphics.Color.parseColor("#05021E")), onClick =  { })
         Divider()
         //----------------------------------Lista de deseos----------------------------------------
