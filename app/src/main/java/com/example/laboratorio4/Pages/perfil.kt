@@ -1,4 +1,4 @@
-package com.example.laboratorio4
+package com.example.laboratorio4.Pages
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -33,7 +33,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-
+import com.example.laboratorio4.R
+import com.example.laboratorio4.routingPages
 
 
 @Composable
@@ -71,13 +72,13 @@ fun BtnIconText(
 fun perfilPage (navController: NavController){
     val scrollState = rememberScrollState()
     //icons
-    val iconSettings = painterResource( R.drawable.baseline_settings_24)
+    val iconSettings = painterResource(R.drawable.baseline_settings_24)
     val index = painterResource(id = R.drawable.baseline_all_inbox_24)
     val personIcon = painterResource(id = R.drawable.baseline_people_24)
     val shopIcon = painterResource(id = R.drawable.baseline_shopping_bag_24)
     val phoneIcon = painterResource(id = R.drawable.baseline_phone_android_24)
     //Imagenes
-    val fondoPerfil = painterResource( R.drawable.fondoperfil)
+    val fondoPerfil = painterResource(R.drawable.fondoperfil)
     val vrPerfil = painterResource(R.drawable.vr)
 
 
@@ -93,7 +94,9 @@ fun perfilPage (navController: NavController){
                 .padding(10.dp),
             horizontalArrangement = Arrangement.SpaceBetween){
             Text(text = "Perfil", fontSize = 24.sp, fontWeight = FontWeight(600) , modifier = Modifier.padding(vertical = 15.dp))
-            Icon(painter = iconSettings, contentDescription ="", modifier =  Modifier.size(50.dp).clickable { navController.navigate(routingPages.CONFIG) } )
+            Icon(painter = iconSettings, contentDescription ="", modifier =  Modifier.size(50.dp).clickable { navController.navigate(
+                routingPages.CONFIG
+            ) } )
 
         }
 

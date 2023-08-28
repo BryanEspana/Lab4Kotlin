@@ -1,4 +1,4 @@
-package com.example.laboratorio4
+package com.example.laboratorio4.Pages
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -28,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.laboratorio4.R
 
 @Composable
 fun infoCampus(onNavigatePerfil: () -> Unit){
@@ -39,7 +40,7 @@ fun infoCampus(onNavigatePerfil: () -> Unit){
     val imageBiolo = painterResource(id = R.drawable.alyx)
     val imageEntrada = painterResource(id = R.drawable.paradise)
     val imageDoom = painterResource(id = R.drawable.doom)
-    val imageBeet = painterResource(id = R.drawable.bet )
+    val imageBeet = painterResource(id = R.drawable.bet)
 
     Column (horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier

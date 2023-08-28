@@ -14,6 +14,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.laboratorio4.Pages.ConfigPage
+import com.example.laboratorio4.Pages.ContactPage
+import com.example.laboratorio4.Pages.infoCampus
+import com.example.laboratorio4.Pages.perfilPage
 import com.example.laboratorio4.ui.theme.Laboratorio4Theme
 
 

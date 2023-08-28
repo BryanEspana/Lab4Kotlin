@@ -1,4 +1,4 @@
-package com.example.laboratorio4
+package com.example.laboratorio4.Pages
 
 import android.icu.text.ListFormatter.Width
 import androidx.compose.foundation.background
@@ -31,6 +31,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import com.example.laboratorio4.R
+import com.example.laboratorio4.routingPages
 
 
 @Composable
@@ -71,7 +73,7 @@ fun ContactPage(navController: NavController){
     val phoneIcon = painterResource(id = R.drawable.baseline_local_phone_24)
 
     val closeIcon = painterResource(id = R.drawable.baseline_close_24)
-    val warningIcon = painterResource(id =R.drawable.baseline_warning_24)
+    val warningIcon = painterResource(id = R.drawable.baseline_warning_24)
     val controlIcon = painterResource(id = R.drawable.baseline_gamepad_24)
     val infoIcon = painterResource(id = R.drawable.baseline_help_24)
     Column (
@@ -79,7 +81,9 @@ fun ContactPage(navController: NavController){
             .fillMaxSize()
             .verticalScroll(state = scrollState)
     ){
-        Row (Modifier.padding(top = 20.dp, bottom = 20.dp, start = 10.dp).clickable {  navController.navigate(routingPages.PROFILE)  }, ){
+        Row (Modifier.padding(top = 20.dp, bottom = 20.dp, start = 10.dp).clickable {  navController.navigate(
+            routingPages.PROFILE
+        )  }, ){
             Icon(painter = closeIcon, contentDescription = "",
                 Modifier
                     .size(40.dp)

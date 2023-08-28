@@ -1,4 +1,4 @@
-package com.example.laboratorio4
+package com.example.laboratorio4.Pages
 
 import android.provider.CalendarContract.Colors
 import androidx.compose.foundation.background
@@ -26,7 +26,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-
+import com.example.laboratorio4.R
+import com.example.laboratorio4.routingPages
 
 
 @Composable
@@ -57,7 +58,7 @@ fun ConfigPage (navController: NavController){
     val scrollState = rememberScrollState()
     //Icons
     val closeIcon = painterResource(id = R.drawable.baseline_close_24)
-    val editPerfileIcon = painterResource(id =R.drawable.baseline_person_24)
+    val editPerfileIcon = painterResource(id = R.drawable.baseline_person_24)
     val EmailIcon = painterResource(id = R.drawable.baseline_email_24)
     val NotiIcon = painterResource(id = R.drawable.baseline_notifications_24)
     val privateIcon = painterResource(id = R.drawable.baseline_privacy_tip_24)
@@ -71,7 +72,9 @@ fun ConfigPage (navController: NavController){
     ){
         Column (Modifier.background(Color.White)){
             Row (Modifier.padding(top = 20.dp, bottom = 20.dp, start = 10.dp)){
-                Icon(painter = closeIcon, contentDescription = "", Modifier.size(40.dp).clickable { navController.navigate(routingPages.PROFILE) })
+                Icon(painter = closeIcon, contentDescription = "", Modifier.size(40.dp).clickable { navController.navigate(
+                    routingPages.PROFILE
+                ) })
                 Box(modifier =  Modifier.padding(start = 80.dp)){
                     Text(text = "Configuración", fontSize = 22.sp)}
             }
