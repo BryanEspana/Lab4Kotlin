@@ -87,17 +87,7 @@ fun perfilPage (navController: NavController){
             .fillMaxSize()
             .verticalScroll(state = scrollState)
     ) {
-        Row (
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            horizontalArrangement = Arrangement.SpaceBetween){
-            Text(text = "Perfil", fontSize = 24.sp, fontWeight = FontWeight(600) , modifier = Modifier.padding(vertical = 15.dp))
-            Icon(painter = iconSettings, contentDescription ="", modifier = Modifier
-                .size(50.dp)
-                .clickable { navController.navigate(routingPages.CONFIG) } )
 
-        }
 
         Box(
             modifier = Modifier.fillMaxWidth()

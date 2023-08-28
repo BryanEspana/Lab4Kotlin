@@ -11,13 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.laboratorio4.RoutingPages.ConfigPage
-import com.example.laboratorio4.RoutingPages.ContactPage
-import com.example.laboratorio4.RoutingPages.infoCampus
-import com.example.laboratorio4.RoutingPages.perfilPage
 import com.example.laboratorio4.ui.theme.Laboratorio4Theme
 
 
@@ -42,8 +36,7 @@ fun GreetingPreview() {
         Surface( modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)){
-            infoCampus(onNavigatePerfil ={
-            })
+
         }
     }
 }}

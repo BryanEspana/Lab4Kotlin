@@ -29,10 +29,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.laboratorio4.R
+import com.example.laboratorio4.routingPages
 
 @Composable
-fun infoCampus(onNavigatePerfil: () -> Unit){
+fun infoCampus(navController: NavController){
     val scrollState = rememberScrollState()
     //Icons
     val iconUSer = painterResource(id = R.drawable.baseline_person_24)
@@ -52,25 +54,7 @@ fun infoCampus(onNavigatePerfil: () -> Unit){
             .fillMaxSize()
             .verticalScroll(state = scrollState)
     ) {
-        Row (
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp),
-            horizontalArrangement = Arrangement.SpaceBetween){
-            Text(text = "Games VR", fontSize = 24.sp, fontWeight = FontWeight(600) , modifier = Modifier.padding(vertical = 15.dp))
-            IconButton(onClick = { onNavigatePerfil() } ) {
-                Icon(painter = iconUSer, contentDescription = "", modifier = Modifier
-                    .size(48.dp)
-                    .border(
-                        width = 2.dp, // Ancho del borde
-                        color = Color.White, // Color del borde
-                        shape = RoundedCornerShape(100.dp) // Radios para la parte superior
-                    )
-                    .padding(5.dp)
-                )
-            }
 
-        }
         Box(modifier = Modifier
             .fillMaxSize()){
             Column( Modifier.fillMaxSize()) {

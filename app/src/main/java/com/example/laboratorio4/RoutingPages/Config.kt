@@ -70,13 +70,7 @@ fun ConfigPage (navController: NavController){
             .background(Color(android.graphics.Color.parseColor("#ECECEC")))
     ){
         Column (Modifier.background(Color.White)){
-            Row (Modifier.padding(top = 20.dp, bottom = 20.dp, start = 10.dp)){
-                Icon(painter = closeIcon, contentDescription = "", Modifier.size(40.dp).clickable { navController.navigate(
-                    routingPages.PROFILE
-                ) })
-                Box(modifier =  Modifier.padding(start = 80.dp)){
-                    Text(text = "Configuración", fontSize = 22.sp)}
-            }
+
             Divider()
             BtnIconOneText(painter = editPerfileIcon, primaryText = "Editar Perfil",
                 iconColor = Color.Gray, {})

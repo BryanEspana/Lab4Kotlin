@@ -1,7 +1,6 @@
 package com.example.laboratorio4
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -23,14 +22,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Face
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.Button
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ModalDrawerSheet
@@ -40,15 +34,14 @@ import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -56,7 +49,6 @@ import com.example.laboratorio4.RoutingPages.ConfigPage
 import com.example.laboratorio4.RoutingPages.ContactPage
 import com.example.laboratorio4.RoutingPages.infoCampus
 import com.example.laboratorio4.RoutingPages.perfilPage
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -130,14 +122,10 @@ fun sidebarLeft(navController: NavController){
             //Textos
             val gamesVR = stringResource(id = R.string.GamesVR)
 
-
-            val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = routingPages.INFO_CAMPUS) {
+            NavHost(navController = navController as NavHostController, startDestination = routingPages.INFO_CAMPUS) {
                 composable(routingPages.INFO_CAMPUS) {
                     CommonLayout(drawerState) {
-                        infoCampus(onNavigatePerfil = {
-                            navController.navigate(routingPages.PROFILE)
-                        })
+                        infoCampus(navController)
                     }
                 }
 

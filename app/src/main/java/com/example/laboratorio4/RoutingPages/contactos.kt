@@ -78,18 +78,7 @@ fun ContactPage(navController: NavController){
             .fillMaxSize()
             .verticalScroll(state = scrollState)
     ){
-        Row (Modifier.padding(top = 20.dp, bottom = 20.dp, start = 10.dp).clickable {  navController.navigate(
-            routingPages.PROFILE
-        )  }, ){
-            Icon(painter = closeIcon, contentDescription = "",
-                Modifier
-                    .size(40.dp)
-                    //.clickable { navController.navigate(routingPages.PROFILE) })
-            )
-            Box(modifier =  Modifier.padding(start = 50.dp)) {
-                Text(text = "Contactos de Emergencia", fontSize = 20.sp)
-            }
-        }
+
         Divider()
 
         Column {
