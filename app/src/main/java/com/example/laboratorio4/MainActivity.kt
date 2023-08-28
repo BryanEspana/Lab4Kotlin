@@ -14,8 +14,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.laboratorio4.pages.ConfigPage
+import com.example.laboratorio4.pages.ContactPage
+import com.example.laboratorio4.pages.infoCampus
+import com.example.laboratorio4.pages.perfilPage
 import com.example.laboratorio4.ui.theme.Laboratorio4Theme
-import com.example.laboratorio4.ui.theme.MainLayout
 
 
 class MainActivity : ComponentActivity() {
@@ -28,20 +31,25 @@ class MainActivity : ComponentActivity() {
             MainLayout(navController = navController) {
                 NavHost(navController = navController, startDestination = routingPages.INFO_CAMPUS) {
                     composable(routingPages.INFO_CAMPUS) {
-                        infoCampus(onNavigatePerfil = {
-                            navController.navigate(routingPages.PROFILE)
-                        })
+                        ScreenContent(titleId = R.string.page1)
+                        infoCampus(onNavigatePerfil = {navController.navigate(routingPages.PROFILE)})
                     }
 
                     composable(routingPages.PROFILE) {
+                        ScreenContent(titleId = R.string.page2)
                         perfilPage(navController)
+
+
                     }
 
                     composable(routingPages.CONFIG) {
+                        ScreenContent(titleId = R.string.page2)
                         ConfigPage(navController)
+
                     }
 
                     composable(routingPages.CONTACTOS) {
+                        ScreenContent(titleId = R.string.page3)
                         ContactPage(navController)
                     }
                 }
@@ -66,3 +74,6 @@ fun GreetingPreview() {
         }
     }
 }}
+
+
+
