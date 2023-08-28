@@ -31,8 +31,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -132,7 +130,7 @@ fun DrawerItem(menuItem: MenuItem, modifier: Modifier = Modifier, onItemClick: (
 @Composable
 fun DrawerBody(
     menuItems: List<MenuItem>,
-    scaffoldState: ScaffoldState,
+    //scaffoldState: ScaffoldState,
     scope: CoroutineScope,
     modifier: Modifier = Modifier,
     onItemClick: (MenuItem) -> Unit
@@ -188,44 +186,5 @@ fun ScreenContent(titleId: Int, modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = stringResource(id = titleId))
-    }
-}
-
-@Composable
-fun DrawerNavigationScreen() {
-    val scaffoldState = rememberScaffoldState()
-    val scope = rememberCoroutineScope()
-    val navController = rememberNavController()
-    Scaffold(
-        scaffoldState = scaffoldState,
-        topBar = {
-            TopBar(
-                titleResId = R.string.app_name,
-                openDrawer =
-                {
-                    scope.launch {
-                        // Open the drawer with animation
-                        // and suspend until it is fully
-                        // opened or animation has been canceled
-                        scaffoldState.drawerState.open()
-                    }
-                }
-            )
-        },
-        drawerGesturesEnabled = true,
-        drawerContent = {
-            DrawerBody(
-                menuItems = drawerScreens,
-                scaffoldState,
-                scope
-            ) {
-                navController.navigate(it.id.name) {
-                    popUpTo = navController.graph.startDestinationId
-                    launchSingleTop = true
-                }
-            }
-        }
-    ) {
-        NavHost(navController = navController)
     }
 }
