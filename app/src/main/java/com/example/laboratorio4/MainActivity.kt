@@ -15,7 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.laboratorio4.ui.theme.Laboratorio4Theme
-
+import com.example.laboratorio4.ui.theme.MainLayout
 
 
 class MainActivity : ComponentActivity() {
@@ -25,25 +25,28 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
 
-            NavHost(navController = navController, startDestination = routingPages.INFO_CAMPUS) {
-                composable(routingPages.INFO_CAMPUS) {
-                    infoCampus(onNavigatePerfil = {
-                        navController.navigate(routingPages.PROFILE)
-                    })
-                }
+            MainLayout(navController = navController) {
+                NavHost(navController = navController, startDestination = routingPages.INFO_CAMPUS) {
+                    composable(routingPages.INFO_CAMPUS) {
+                        infoCampus(onNavigatePerfil = {
+                            navController.navigate(routingPages.PROFILE)
+                        })
+                    }
 
-                composable(routingPages.PROFILE) {
-                    perfilPage(navController)
-                }
+                    composable(routingPages.PROFILE) {
+                        perfilPage(navController)
+                    }
 
-                composable(routingPages.CONFIG) {
-                    ConfigPage(navController)
-                }
+                    composable(routingPages.CONFIG) {
+                        ConfigPage(navController)
+                    }
 
-                composable(routingPages.CONTACTOS) {
-                    ContactPage(navController)
+                    composable(routingPages.CONTACTOS) {
+                        ContactPage(navController)
+                    }
                 }
-        }
+                
+            }
 
     }
 }
